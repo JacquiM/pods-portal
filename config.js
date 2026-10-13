@@ -3,5 +3,5 @@
 // or https://your-project-default-rtdb.europe-west1.firebasedatabase.app
 // While this is empty the registry still shows, without the tick-off button. See README.md.
 window.SITE_CONFIG = {
-  databaseUrl: ''
+  databaseUrl: 'https://pod-s-portal-default-rtdb.europe-west1.firebasedatabase.app/'
 };

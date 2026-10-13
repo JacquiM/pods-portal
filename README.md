@@ -1,13 +1,13 @@
-# Rainbow Baby Celebration
+# Pod's Portal
 
 A static site: save-the-date invite with a countdown, personalised guest links and a gift registry guests can tick off.
 
 ## Put it on GitHub Pages
 
-1. Create a new public repository on GitHub, e.g. `rainbow-baby-shower`.
+1. Create a new public repository on GitHub, e.g. `pods-portal`.
 2. Upload everything in this folder to it (or `git init`, commit and push).
 3. In the repository go to **Settings > Pages**, choose **Deploy from a branch**, pick `main` and `/ (root)`, and save.
-4. After a minute the site is live at `https://<your-username>.github.io/rainbow-baby-shower/`.
+4. After a minute the site is live at `https://jacquim.github.io/pods-portal/`.
 
 ## Let guests tick off gifts
 
@@ -32,7 +32,7 @@ The RSVP form saves to the same database, so it works once `config.js` has the d
 
 Add each guest to `guests.js` with a short code, their name and the ages to cater for. Send them the site address with `?g=` and their code on the end:
 
-    https://<your-username>.github.io/rainbow-baby-shower/?g=ouma-anna
+    https://jacquim.github.io/pods-portal/?g=ouma-anna
 
 They see "Dear Ouma Anna" and "Please cater for ages 3-6 months". The plain address, without a code, shows the general invite.
 

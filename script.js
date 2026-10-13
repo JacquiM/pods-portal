@@ -55,8 +55,9 @@
 
   function actionsHtml(g) {
     var id = esc(g.id);
-    var shop = '<a class="btn ghost" href="' + esc(g.url) + '" target="_blank" rel="noopener">View at ' + esc(g.shop) + '</a>';
+    var shop = g.url ? '<a class="btn ghost" href="' + esc(g.url) + '" target="_blank" rel="noopener">View at ' + esc(g.shop || 'the shop') + '</a>' : '';
     var note = notes[g.id] ? '<p class="card-note" role="status">' + esc(notes[g.id]) + '</p>' : '';
+    if (g.many) return '<span class="pill welcome">Always welcome</span>' + shop;
     if (claims[g.id]) {
       var undo = mine().indexOf(g.id) > -1
         ? '<button type="button" class="linkbtn" data-undo="' + id + '"' + (busy ? ' disabled' : '') + '>Changed your mind? Undo</button>'
@@ -79,16 +80,29 @@
   function render() {
     // a ticked gift disappears for everyone except the guest who ticked it, who keeps it so they can undo
     var my = mine();
-    var shown = gifts.filter(function (g) { return !claims[g.id] || my.indexOf(g.id) > -1 || notes[g.id]; });
+    var shown = gifts.filter(function (g) { return g.many || !claims[g.id] || my.indexOf(g.id) > -1 || notes[g.id]; });
     var empty = document.getElementById('gifts-empty');
     empty.hidden = shown.length > 0 || gifts.length === 0;
-    list.innerHTML = shown.map(function (g) {
-      return '<li class="gift' + (claims[g.id] ? ' bought' : '') + '">' +
-        '<div class="pic"><img src="' + esc(g.img) + '" alt="' + esc(g.name) + '" loading="lazy"></div>' +
-        '<h3>' + esc(g.name) + '</h3>' +
-        '<p>' + esc(g.blurb) + '</p>' +
-        '<span class="price">' + esc(g.price) + '</span>' +
-        '<div class="actions">' + actionsHtml(g) + '</div></li>';
+    var groups = [];
+    shown.forEach(function (g) {
+      var name = g.group || '';
+      var grp = groups.filter(function (x) { return x.name === name; })[0];
+      if (!grp) { grp = { name: name, items: [] }; groups.push(grp); }
+      grp.items.push(g);
+    });
+    var icons = ['heart', 'star', 'cloud', 'moon', 'rainbow'];
+    list.innerHTML = groups.map(function (grp) {
+      return (grp.name ? '<h3 class="group">' + esc(grp.name) + '</h3>' : '') + '<ul class="gifts">' + grp.items.map(function (g, i) {
+        var icon = icons.indexOf(g.icon) > -1 ? g.icon : 'heart';
+        var pic = g.img
+          ? '<div class="pic"><img src="' + esc(g.img) + '" alt="' + esc(g.name) + '" loading="lazy"></div>'
+          : '<div class="pic icon c' + (i % 6) + '"><svg class="sticker s-' + icon + '" viewBox="0 0 24 24" aria-hidden="true"><use href="#' + icon + '"/></svg></div>';
+        return '<li class="gift' + (!g.many && claims[g.id] ? ' bought' : '') + '">' + pic +
+          '<h4>' + esc(g.name) + '</h4>' +
+          '<p>' + esc(g.blurb) + '</p>' +
+          (g.price ? '<span class="price">' + esc(g.price) + '</span>' : '') +
+          '<div class="actions">' + actionsHtml(g) + '</div></li>';
+      }).join('') + '</ul>';
     }).join('');
   }
 

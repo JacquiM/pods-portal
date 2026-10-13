@@ -232,3 +232,17 @@ h2.script { font-size: clamp(48px, 6.5vw, 68px); }
 .pill.welcome { background: var(--sky); color: #24496b; }
 .gift .pic.c0 { background: #fbdfe4; } .gift .pic.c1 { background: #fce3cd; } .gift .pic.c2 { background: #fbf0c4; }
 .gift .pic.c3 { background: #dcf1dd; } .gift .pic.c4 { background: #d9e9f7; } .gift .pic.c5 { background: #e8dff7; }
+
+/* ---- Clothes guide ---- */
+.guide { width: 100%; max-width: 760px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.guide .group { margin-top: 10px; }
+.guide-scroll { width: 100%; overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; }
+.guide table { width: 100%; min-width: 470px; border-collapse: collapse; text-align: left; font-size: 15px; }
+.guide th, .guide td { padding: 12px 10px 9px; border-bottom: 1px solid var(--line); vertical-align: top; font-weight: 300; }
+.guide tbody tr:last-child th, .guide tbody tr:last-child td { border-bottom: 0; }
+.guide thead th { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--berry); }
+.guide tbody th { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.guide td:last-child { font-weight: 600; color: var(--berry); }
+.guide tr.mine th, .guide tr.mine td { background: var(--blush); }
+.guide tr.mine th:first-child { border-radius: 12px 0 0 12px; }
+.guide tr.mine td:last-child { border-radius: 0 12px 12px 0; }

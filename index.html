@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Chewy&family=Josefin+Sans:wght@300;400;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <div class="hearts" id="hearts" aria-hidden="true"></div>
@@ -99,6 +99,26 @@
       <h2 class="script">Gift Registry</h2>
       <p class="lede">Having you there is the gift. If you would like to bring something for her, here are some things we would love. Mark a one-off gift when you are getting it and it disappears from the list, so nobody doubles up. The everyday things at the bottom are always welcome.</p>
       <p class="cater" id="cater-registry" hidden></p>
+
+      <div class="guide">
+        <h3 class="group">Clothes Guide</h3>
+        <p class="lede">She is due in January 2027, so here is what she will be wearing when.</p>
+        <div class="guide-scroll">
+          <table id="clothes-guide">
+            <thead>
+              <tr><th scope="col">Baby's age</th><th scope="col">Approx. dates</th><th scope="col">Season in SA</th><th scope="col">Sizes to buy</th></tr>
+            </thead>
+            <tbody>
+              <tr data-sizes="newborn 0-3"><th scope="row">Newborn</th><td>Jan 2027</td><td>Summer</td><td>Newborn / 0–3 months</td></tr>
+              <tr data-sizes="0-3 1-3"><th scope="row">1–3 months</th><td>Feb–Apr</td><td>Late summer / autumn</td><td>0–3 months</td></tr>
+              <tr data-sizes="3-6"><th scope="row">3–6 months</th><td>Apr–Jul</td><td>Autumn / winter</td><td>3–6 months</td></tr>
+              <tr data-sizes="6-9"><th scope="row">6–9 months</th><td>Jul–Oct</td><td>Winter / spring</td><td>6–9 months</td></tr>
+              <tr data-sizes="9-12"><th scope="row">9–12 months</th><td>Oct 2027–Jan 2028</td><td>Spring / summer</td><td>9–12 months</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="form-note" id="guide-note" hidden>The highlighted rows match the ages on your invite.</p>
+      </div>
       <div class="gift-groups" id="gifts"></div>
       <p class="lede" id="gifts-empty" hidden>Every gift on the list has been taken. Thank you all so much!</p>
     </section>
@@ -207,14 +227,14 @@
     <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
     <symbol id="cloud" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="7.5" cy="14" r="5"/><circle cx="13" cy="10.5" r="6"/><circle cx="18" cy="14.5" r="4.5"/><rect x="7.5" y="14" width="10.5" height="5"/></g></symbol>
     <symbol id="moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></symbol>
-    <symbol id="rainbow" viewBox="0 0 24 24"><path d="M3 18.5a9 9 0 0 1 18 0" fill="none" stroke="#f4a9b8" stroke-width="2.8"/><path d="M6 18.5a6 6 0 0 1 12 0" fill="none" stroke="#f1cf6c" stroke-width="2.8"/><path d="M9 18.5a3 3 0 0 1 6 0" fill="none" stroke="#8bbbe0" stroke-width="2.8"/></symbol>
+    <symbol id="rainbow" viewBox="0 0 24 24"><path d="M2.5 19a9.5 9.5 0 0 1 19 0" fill="none" stroke="#f4a9b8" stroke-width="3.2"/><path d="M5.8 19a6.2 6.2 0 0 1 12.4 0" fill="none" stroke="#f1cf6c" stroke-width="3.2"/><path d="M9.1 19a2.9 2.9 0 0 1 5.800 0" fill="none" stroke="#8bbbe0" stroke-width="3.2"/></symbol>
     <symbol id="heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.9-9.6-9.4C.9 8.3 2.7 4.5 6.3 4.5c2.1 0 3.7 1.1 4.7 2.700h2c1-1.600 2.600-2.700 4.700-2.700 3.600 0 5.400 3.800 3.900 7.100C19.500 16.100 12 21 12 21z"/></symbol>
   </svg>
 
-  <script src="config.js?v=6"></script>
-  <script src="guests.js?v=6"></script>
-  <script src="gifts.js?v=6"></script>
-  <script src="script.js?v=6"></script>
-  <script src="board.js?v=6"></script>
+  <script src="config.js?v=7"></script>
+  <script src="guests.js?v=7"></script>
+  <script src="gifts.js?v=7"></script>
+  <script src="script.js?v=7"></script>
+  <script src="board.js?v=7"></script>
 </body>
 </html>

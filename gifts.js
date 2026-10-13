@@ -83,6 +83,56 @@ window.GIFTS = [
     img: 'images/gift-card.jpg'
   },
 
+  // ---- From Baby Brezza ----
+  {
+    id: 'brezza-formula-pro', group: 'From Baby Brezza',
+    name: 'Formula Pro Advanced',
+    blurb: 'Mixes a warm formula bottle at the push of a button. Comes in white or black.',
+    price: 'R4,999', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/formula-pro-advanced',
+    img: 'images/brezza-formula-pro.jpg'
+  },
+  {
+    id: 'brezza-instant-warmer', group: 'From Baby Brezza',
+    name: 'Instant Warmer',
+    blurb: 'Keeps water at the right temperature, ready for a bottle day or night.',
+    price: 'R1,299', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/instant-warmer',
+    img: 'images/brezza-instant-warmer.jpg'
+  },
+  {
+    id: 'brezza-bottle-warmer', group: 'From Baby Brezza',
+    name: 'Bottle and Breastmilk Warmer',
+    blurb: 'Warms breastmilk and formula safely and evenly.',
+    price: 'R1,699', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/breastmilk-bottle-warmer',
+    img: 'images/brezza-bottle-warmer.jpg'
+  },
+  {
+    id: 'brezza-sterilizer', group: 'From Baby Brezza',
+    name: 'Sterilizer Dryer Advanced',
+    blurb: 'Sterilises, dries and stores bottles, ready for the next feed.',
+    price: 'R2,499', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/steriliser-dryer-advanced',
+    img: 'images/brezza-sterilizer.jpg'
+  },
+  {
+    id: 'brezza-bottle-washer', group: 'From Baby Brezza',
+    name: 'Bottle Washer Pro',
+    blurb: 'Washes, sterilises and dries bottles in one machine.',
+    price: 'R5,999', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/bottle-washer-pro%C2%AE',
+    img: 'images/brezza-bottle-washer.jpg'
+  },
+  {
+    id: 'brezza-gift-card', group: 'From Baby Brezza', many: true,
+    name: 'Baby Brezza Gift Card',
+    blurb: 'From R500 to R5,000, to go towards one of the bigger items.',
+    price: 'From R500', shop: 'Baby Brezza',
+    url: 'https://www.babybrezza.co.za/products/baby-brezza-south-africa-gift-card',
+    img: 'images/brezza-gift-card.jpg'
+  },
+
   // ---- Bigger things (one of each) ----
   { id: 'thermometer', group: 'Bigger things', icon: 'star', name: 'Digital Thermometer', blurb: 'A no-touch or ear thermometer for quick checks. Any brand.' },
   { id: 'baby-monitor', group: 'Bigger things', icon: 'moon', name: 'Baby Monitor', blurb: 'So we can keep an eye and an ear on her while she naps. Any brand.' },
@@ -97,7 +147,7 @@ window.GIFTS = [
   // ---- Always welcome (as many as you like) ----
   { id: 'nappies', group: 'Always welcome', many: true, icon: 'cloud', name: 'Nappies', blurb: 'Any size from newborn up. She will grow into them all.' },
   { id: 'wipes', group: 'Always welcome', many: true, icon: 'heart', name: 'Baby Wipes', blurb: 'Fragrance-free or water wipes, by the box.' },
-  { id: 'bum-cream', group: 'Always welcome', many: true, icon: 'star', name: 'Bum Cream and Toiletries', blurb: 'Barrier cream, gentle baby wash, lotion and aqueous cream.' },
+  { id: 'bum-cream', group: 'Always welcome', many: true, icon: 'star', name: "Johnson's Baby Toiletries", blurb: "Johnson's baby wash, shampoo, lotion and bum cream." },
   { id: 'clothes', group: 'Always welcome', many: true, icon: 'rainbow', name: 'Babygrows and Vests', blurb: 'Everyday basics. If your invite gives an age range, that is the size to shop for.' },
   { id: 'muslins', group: 'Always welcome', many: true, icon: 'cloud', name: 'Muslins and Burp Cloths', blurb: 'You can never have too many.' },
   { id: 'blankets', group: 'Always welcome', many: true, icon: 'moon', name: 'Receiving Blankets and Swaddles', blurb: 'Soft cotton blankets for swaddling and cuddles.' },

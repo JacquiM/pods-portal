@@ -26,6 +26,14 @@
         el.textContent = 'Please cater for ages ' + guest.ages;
         el.hidden = false;
       });
+      // highlight the clothes-guide rows for this guest's ages, e.g. "0-3 months" or "newborn"
+      var wanted = String(guest.ages).toLowerCase().replace(/[–—]/g, '-').replace(/\s*-\s*/g, '-');
+      var hit = false;
+      [].forEach.call(document.querySelectorAll('#clothes-guide tbody tr'), function (row) {
+        var match = row.getAttribute('data-sizes').split(' ').some(function (s) { return wanted.indexOf(s) > -1; });
+        if (match) { row.className = 'mine'; hit = true; }
+      });
+      document.getElementById('guide-note').hidden = !hit;
     }
   }
 

@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "claims": {
+      ".read": true,
+      "$gift": {
+        ".write": true,
+        ".validate": "newData.hasChildren(['by', 'at']) && newData.child('by').isString() && newData.child('by').val().length <= 60 && newData.child('at').isString() && newData.child('at').val().length <= 40"
+      }
+    },
+    "rsvps": {
+      "$reply": {
+        ".write": true,
+        ".validate": "newData.hasChildren(['name', 'attending', 'count', 'at']) && newData.child('name').isString() && newData.child('name').val().length <= 60 && newData.child('attending').isBoolean() && newData.child('count').isNumber() && newData.child('count').val() >= 0 && newData.child('count').val() <= 10 && (!newData.hasChild('kids') || (newData.child('kids').isNumber() && newData.child('kids').val() >= 0 && newData.child('kids').val() <= 10)) &&(!newData.hasChild('note') || (newData.child('note').isString() && newData.child('note').val().length <= 300)) && newData.child('at').isString() && newData.child('at').val().length <= 40"
+      }
+    }
+  }
+}

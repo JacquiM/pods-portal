@@ -1,0 +1,162 @@
+/* Layout: a centred save-the-date with the date and countdown; the registry follows as a row of gift cards. One look, taken from the invite. */
+:root {
+  color-scheme: light;
+  --paper: #fdf5ef;
+  --card: #fffaf6;
+  --blush: #f8dbe0;
+  --rose: #e0708a;
+  --berry: #b0456a;
+  --ink: #6a4a56;
+  --peach: #f7c9a3;
+  --butter: #f6dc94;
+  --mint: #b9dfbd;
+  --sky: #b4d4ee;
+  --lilac: #cfbdec;
+  --line: #f0d5d6;
+  --script: "Allura", "Segoe Script", "Brush Script MT", cursive;
+  --caps: "Josefin Sans", "Century Gothic", "Trebuchet MS", sans-serif;
+  --fun: "Chewy", "Comic Sans MS", "Trebuchet MS", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--caps);
+  font-size: 17px;
+  line-height: 1.55;
+  position: relative;
+  overflow-x: hidden;
+}
+/* watercolour clouds in the bottom corners, as on the invite */
+body::before, body::after {
+  content: ""; position: absolute; bottom: 0; width: 340px; height: 260px; max-width: 45%;
+  pointer-events: none; opacity: .75; filter: blur(2px);
+}
+body::before {
+  left: 0;
+  background:
+    radial-gradient(circle at 12% 30%, var(--blush) 0 70px, transparent 72px),
+    radial-gradient(circle at 42% 68%, var(--butter) 0 80px, transparent 82px),
+    radial-gradient(circle at 8% 95%, var(--sky) 0 110px, transparent 112px);
+}
+body::after {
+  right: 0;
+  background:
+    radial-gradient(circle at 92% 28%, var(--mint) 0 70px, transparent 72px),
+    radial-gradient(circle at 60% 70%, var(--sky) 0 85px, transparent 87px),
+    radial-gradient(circle at 95% 98%, var(--peach) 0 100px, transparent 102px),
+    radial-gradient(circle at 30% 100%, var(--lilac) 0 80px, transparent 82px);
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 150px; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 72px; }
+
+.hero { display: flex; justify-content: center; padding-block: 24px 0; }
+.hero-text { width: 100%; max-width: 620px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; min-width: 0; position: relative; }
+.eyebrow { font-size: 15px; letter-spacing: .32em; text-transform: uppercase; color: var(--berry); margin: 0; }
+.rainbow-word {
+  font-family: var(--fun); font-size: clamp(58px, 9vw, 96px); line-height: 1; letter-spacing: .04em; margin: 0;
+  background: linear-gradient(90deg, #f29bb0, #f3b27c 22%, #dcc75a 38%, #86cf8f 55%, #7fbfe6 74%, #b79be8);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.script { font-family: var(--script); font-weight: 400; color: var(--rose); line-height: 1.05; margin: 0; text-wrap: balance; }
+h1.script { font-size: clamp(50px, 7vw, 76px); }
+h2.script { font-size: clamp(48px, 6.5vw, 68px); }
+.rule { display: flex; align-items: center; gap: 12px; color: var(--berry); }
+.rule::before, .rule::after { content: ""; width: 70px; height: 1px; background: currentColor; opacity: .6; }
+.rule-heart { color: var(--rose); }
+/* the brush-stroke date banner, cut from the invite */
+.date { margin: 0; width: 100%; max-width: 500px; }
+.date img { display: block; width: 100%; height: auto; }
+
+.countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 420px; margin-block: 6px; }
+.unit { aspect-ratio: 1 / 1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.unit:nth-child(1) { background: var(--blush); }
+.unit:nth-child(2) { background: var(--butter); }
+.unit:nth-child(3) { background: var(--mint); }
+.unit:nth-child(4) { background: var(--sky); }
+.num { font-size: clamp(24px, 6.5vw, 34px); font-weight: 600; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; padding-top: 6px; }
+.lbl { font-size: clamp(9px, 2.4vw, 11px); letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
+
+.note { margin: 0; max-width: 34ch; font-weight: 300; }
+.btn {
+  display: inline-block; font-family: var(--caps); font-size: 14px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
+  color: #fff; background: var(--berry); border: 1px solid var(--berry); border-radius: 999px; padding: 13px 26px 10px; cursor: pointer;
+}
+.btn:hover { background: #983a5b; }
+.btn.ghost { background: transparent; color: var(--berry); }
+.btn.ghost:hover { background: var(--blush); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+.dear { font-size: clamp(38px, 5.5vw, 52px); color: var(--berry); margin-bottom: 6px; }
+.cater { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #4f3d78; background: #e9e0f8; border-radius: 999px; padding: 10px 20px 7px; text-wrap: balance; }
+
+.claim { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+.claim label { font-size: 14px; }
+.claim input { width: 100%; max-width: 240px; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--rose); border-radius: 999px; padding: 9px 16px 6px; text-align: center; }
+.claim input:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.claim-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.linkbtn { font: inherit; font-size: 14px; color: var(--berry); background: none; border: 0; border-bottom: 1px dashed var(--berry); padding: 2px 0; cursor: pointer; }
+.linkbtn:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+.btn[disabled], .linkbtn[disabled] { opacity: .55; cursor: default; }
+.gift .card-note { font-size: 14px; font-weight: 400; color: var(--berry); }
+
+.hero-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.rsvp { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; scroll-margin-top: 24px; }
+.rsvp .lede { margin: 0; max-width: 46ch; font-weight: 300; }
+.rsvp-form { width: 100%; max-width: 460px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.field { width: 100%; display: flex; flex-direction: column; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.field label, .field legend { font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--berry); padding: 0; }
+.field legend { margin: 0 auto 8px; }
+.field input[type="text"], .field input[type="number"], .field textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--rose); border-radius: 16px; padding: 10px 16px 7px; text-align: center;
+}
+.field textarea { resize: vertical; text-align: left; }
+.field input[type="number"] { max-width: 110px; align-self: center; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.choice .option {
+  display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px 7px; cursor: pointer; margin-bottom: 8px;
+}
+.choice .option input { accent-color: var(--berry); margin: 0 0 3px; }
+.choice .option:has(input:checked) { background: var(--blush); border-color: var(--rose); }
+.choice .option:has(input:focus-visible) { outline: 3px solid var(--sky); outline-offset: 2px; }
+.form-note { margin: 0; font-size: 15px; color: var(--berry); min-height: 1.5em; }
+.rsvp-done { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.rsvp-done .script { font-size: clamp(36px, 5vw, 48px); color: var(--berry); }
+
+.heart { position: absolute; pointer-events: none; }
+.h1 { color: #f4a9b8; left: 2%; top: -6%; transform: rotate(-14deg); }
+.h2 { color: var(--butter); right: 4%; top: 8%; transform: rotate(12deg); }
+.h3 { color: var(--mint); left: 6%; bottom: 22%; transform: rotate(-8deg); }
+.h4 { color: var(--sky); right: 2%; bottom: 34%; transform: rotate(16deg); }
+.h5 { color: var(--lilac); right: 12%; bottom: -4%; transform: rotate(-10deg); }
+
+.registry { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; scroll-margin-top: 24px; }
+.registry .lede { margin: 0; max-width: 52ch; font-weight: 300; }
+.gifts { list-style: none; margin: 18px 0 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.gift { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 16px 18px 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; }
+.gift .pic { width: 100%; aspect-ratio: 1 / 1; background: #fff; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.gift .pic img { width: 100%; height: 100%; object-fit: contain; }
+.gift h3 { font-family: var(--caps); font-size: 16px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--berry); margin: 8px 0 0; text-wrap: balance; }
+.gift p { margin: 0; font-weight: 300; font-size: 16px; }
+.gift .price { font-family: var(--script); font-size: 34px; color: var(--rose); line-height: 1; font-variant-numeric: tabular-nums; }
+.gift .actions { margin-top: auto; padding-top: 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pill { font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; border-radius: 999px; padding: 7px 14px 4px; background: var(--butter); color: #6b5312; }
+.gift.bought .pill { background: var(--mint); color: #2c5a33; }
+.gift.bought .pic img { opacity: .45; }
+
+.close { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.close svg { width: 220px; max-width: 70%; height: auto; }
+.close .script { font-size: clamp(34px, 5vw, 44px); }
+
+@media (max-width: 760px) {
+  .wrap { gap: 56px; }
+  .heart { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

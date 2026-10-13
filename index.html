@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rainbow Baby Celebration</title>
+  <meta name="description" content="Save the date for our rainbow baby celebration on 28 November 2026, with our gift registry.">
+  <meta property="og:title" content="Rainbow Baby Celebration">
+  <meta property="og:description" content="A little rainbow is on her way. Save the date: 28 November 2026.">
+  <meta name="theme-color" content="#fdf5ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Chewy&family=Josefin+Sans:wght@300;400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-text">
+        <svg class="heart h1" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
+        <svg class="heart h2" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
+        <svg class="heart h3" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
+        <svg class="heart h4" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
+        <svg class="heart h5" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
+
+        <p class="script dear" id="dear" hidden></p>
+        <p class="eyebrow">Save the date for our</p>
+        <p class="rainbow-word">RAINBOW</p>
+        <h1 class="script">Baby Celebration</h1>
+        <div class="rule"><svg class="rule-heart" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg></div>
+        <p class="eyebrow">A little rainbow is on her way</p>
+        <p class="date"><img src="images/date-banner.png" alt="28 November 2026" width="760" height="186"></p>
+
+        <div class="countdown" id="countdown" role="timer" aria-label="Countdown to 11:00 on 28 November 2026">
+          <div class="unit"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+          <div class="unit"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+          <div class="unit"><span class="num" id="cd-mins">--</span><span class="lbl">Minutes</span></div>
+          <div class="unit"><span class="num" id="cd-secs">--</span><span class="lbl">Seconds</span></div>
+        </div>
+        <p class="eyebrow" id="countdown-done" hidden>Today is the day</p>
+
+        <p class="eyebrow">Starts at 11:00 sharp</p>
+        <p class="note">Venue to follow.</p>
+        <p class="cater" id="cater" hidden></p>
+        <div class="hero-links">
+          <a class="btn" href="#rsvp">RSVP</a>
+          <a class="btn ghost" href="#registry">See the gift registry</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="rsvp" id="rsvp">
+      <h2 class="script">RSVP</h2>
+      <p class="lede">Please let us know whether you can make it, so we can plan for everyone.</p>
+
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="field">
+          <label for="rsvp-name">Your name</label>
+          <input id="rsvp-name" name="name" type="text" maxlength="60" required autocomplete="name">
+        </div>
+        <fieldset class="field choice">
+          <legend>Will you be there?</legend>
+          <label class="option"><input id="rsvp-yes" type="radio" name="attending" value="yes" required> Yes, I will be there</label>
+          <label class="option"><input id="rsvp-no" type="radio" name="attending" value="no"> Sorry, I cannot make it</label>
+        </fieldset>
+        <div class="field" id="rsvp-count-field">
+          <label for="rsvp-count">How many adults are coming?</label>
+          <input id="rsvp-count" name="count" type="number" min="1" max="10" value="1" inputmode="numeric">
+        </div>
+        <fieldset class="field choice" id="rsvp-kids-field">
+          <legend>Are any children coming with you?</legend>
+          <label class="option"><input id="rsvp-kids-yes" type="radio" name="haskids" value="yes"> Yes</label>
+          <label class="option"><input id="rsvp-kids-no" type="radio" name="haskids" value="no" checked> No</label>
+        </fieldset>
+        <div class="field" id="rsvp-kidcount-field">
+          <label for="rsvp-kids">How many children?</label>
+          <input id="rsvp-kids" name="kids" type="number" min="1" max="10" value="1" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="rsvp-note">A message for us (optional)</label>
+          <textarea id="rsvp-note" name="note" rows="3" maxlength="300"></textarea>
+        </div>
+        <button type="submit" class="btn" id="rsvp-send">Send RSVP</button>
+        <p class="form-note" id="rsvp-status" role="status"></p>
+      </form>
+
+      <div class="rsvp-done" id="rsvp-done" hidden>
+        <p class="script" id="rsvp-thanks"></p>
+        <p class="lede" id="rsvp-summary"></p>
+        <button type="button" class="linkbtn" id="rsvp-change">Change my reply</button>
+      </div>
+    </section>
+
+    <section class="registry" id="registry">
+      <h2 class="script">Gift Registry</h2>
+      <p class="lede">Having you there is the gift. If you would like to bring something for her, these are a few things we would love. Each one links to the shop. Once you have bought one, tick it off here so nobody doubles up.</p>
+      <p class="cater" id="cater-registry" hidden></p>
+      <ul class="gifts" id="gifts"></ul>
+    </section>
+
+    <footer class="close">
+      <svg viewBox="0 0 220 120" role="img" aria-label="Pastel rainbow between two clouds">
+        <path d="M22 104 A88 88 0 0 1 198 104" fill="none" stroke="#f4a9b8" stroke-width="10"/>
+        <path d="M35 104 A75 75 0 0 1 185 104" fill="none" stroke="#f7c9a3" stroke-width="10"/>
+        <path d="M48 104 A62 62 0 0 1 172 104" fill="none" stroke="#b9dfbd" stroke-width="10"/>
+        <path d="M61 104 A49 49 0 0 1 159 104" fill="none" stroke="#b4d4ee" stroke-width="10"/>
+        <path d="M74 104 A36 36 0 0 1 146 104" fill="none" stroke="#cfbdec" stroke-width="10"/>
+        <g fill="#ffffff" stroke="#f0d5d6" stroke-width="1"><circle cx="18" cy="106" r="11"/><circle cx="34" cy="100" r="15"/><circle cx="51" cy="106" r="11"/></g>
+        <rect x="8" y="104" width="52" height="13" rx="6" fill="#ffffff"/>
+        <g fill="#ffffff" stroke="#f0d5d6" stroke-width="1"><circle cx="170" cy="106" r="11"/><circle cx="186" cy="100" r="15"/><circle cx="203" cy="106" r="11"/></g>
+        <rect x="160" y="104" width="52" height="13" rx="6" fill="#ffffff"/>
+      </svg>
+      <p class="script">for a day filled with love, baby and blessings</p>
+    </footer>
+  </div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.9-9.6-9.4C.9 8.3 2.7 4.5 6.3 4.5c2.1 0 3.7 1.1 4.7 2.700h2c1-1.600 2.600-2.700 4.700-2.700 3.600 0 5.400 3.800 3.900 7.100C19.500 16.100 12 21 12 21z"/></symbol>
+  </svg>
+
+  <script src="config.js"></script>
+  <script src="guests.js"></script>
+  <script src="gifts.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

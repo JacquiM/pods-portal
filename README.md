@@ -28,6 +28,15 @@ Anyone with the site address can tick or untick gifts; there are no logins.
 
 The RSVP form saves to the same database, so it works once `config.js` has the database URL. Replies appear on the Firebase **Data** tab under `rsvps`, each with the name, whether they are coming, how many adults (`count`) and children (`kids`), and any message. Guests cannot see each other's replies. A guest who replies again from the same device, or from their personalised link, replaces their earlier reply.
 
+## Memories and the message board
+
+Both save to the same database and need the current `firebase-rules.json` published on the Firebase **Rules** tab.
+
+- **Memories:** guests add photos, which are shrunk in their browser before upload. They are stored under `memoryThumbs` (small versions for the wall) and `memoryFull` (the larger version shown when a photo is opened), under the same id.
+- **Message board:** guests write a note and choose its colour, sticker and writing style. Notes are stored under `messages`.
+
+Guests can add photos and messages but cannot change or remove them. To remove one, delete it on the Firebase **Data** tab (for a photo, delete it from both `memoryThumbs` and `memoryFull`). Anyone with the site address can post, and everything posted is visible to everyone.
+
 ## Personalised invites
 
 Add each guest to `guests.js` with a short code, their name and the ages to cater for. Send them the site address with `?g=` and their code on the end:

@@ -31,6 +31,7 @@
 
   // Gift registry. Ticks are shared through the Firebase database set in config.js.
   var DB = ((window.SITE_CONFIG && window.SITE_CONFIG.databaseUrl) || '').trim().replace(/\/+$/, '');
+  window.POD = { db: DB, guest: guest };   // shared with board.js
   var gifts = window.GIFTS || [];
   var list = document.getElementById('gifts');
   var claims = {};      // gift id -> { by, at }
@@ -257,6 +258,22 @@
       statusEl.textContent = 'That did not send. Check your connection and try again.';
     }).then(function () { sendBtn.disabled = false; });
   });
+
+  // Floating hearts
+  (function () {
+    var layer = document.getElementById('hearts');
+    var colours = ['#f4a9b8', '#f7c9a3', '#f6dc94', '#b9dfbd', '#b4d4ee', '#cfbdec', '#e0708a'];
+    var total = window.innerWidth < 700 ? 18 : 32;
+    var html = '';
+    for (var i = 0; i < total; i++) {
+      var size = 12 + Math.round(Math.random() * 18);
+      var dur = 14 + Math.random() * 16;
+      html += '<span class="float" style="--x:' + (Math.random() * 98).toFixed(1) + '%;--y:' + (Math.random() * 96).toFixed(1) + '%;--s:' + size + 'px;--c:' + colours[i % colours.length] +
+        ';--o:' + (0.45 + Math.random() * 0.4).toFixed(2) + ';--d:' + dur.toFixed(1) + 's;--delay:-' + (Math.random() * dur).toFixed(1) + 's;--sw:' + (2.5 + Math.random() * 3).toFixed(1) + 's">' +
+        '<svg viewBox="0 0 24 24"><use href="#heart"/></svg></span>';
+    }
+    layer.innerHTML = html;
+  })();
 
   // Countdown
   var box = document.getElementById('countdown');

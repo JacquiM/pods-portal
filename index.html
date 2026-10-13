@@ -11,17 +11,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Chewy&family=Josefin+Sans:wght@300;400;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
   <div class="wrap">
-    <header class="hero">
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <a href="#invite">Invite</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#registry">Gifts</a>
+      <a href="#memories">Memories</a>
+      <a href="#messages">Messages</a>
+    </nav>
+
+    <header class="hero panel" id="invite">
       <div class="hero-text">
-        <svg class="heart h1" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
-        <svg class="heart h2" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
-        <svg class="heart h3" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
-        <svg class="heart h4" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
-        <svg class="heart h5" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg>
 
         <p class="script dear" id="dear" hidden></p>
         <p class="eyebrow">Save the date for our</p>
@@ -49,7 +53,7 @@
       </div>
     </header>
 
-    <section class="rsvp" id="rsvp">
+    <section class="rsvp panel" id="rsvp">
       <h2 class="script">RSVP</h2>
       <p class="lede">Please let us know whether you can make it, so we can plan for everyone.</p>
 
@@ -91,12 +95,90 @@
       </div>
     </section>
 
-    <section class="registry" id="registry">
+    <section class="registry panel" id="registry">
       <h2 class="script">Gift Registry</h2>
       <p class="lede">Having you there is the gift. If you would like to bring something for her, these are a few things we would love. Each one links to the shop. Mark the one you are getting and it disappears from the list, so nobody doubles up.</p>
       <p class="cater" id="cater-registry" hidden></p>
       <ul class="gifts" id="gifts"></ul>
       <p class="lede" id="gifts-empty" hidden>Every gift on the list has been taken. Thank you all so much!</p>
+    </section>
+
+    <section class="memories panel" id="memories">
+      <h2 class="script">Memories</h2>
+      <p class="lede">Share your photos, from the bump along the way to the day itself. Everyone with the link can see them.</p>
+
+      <form class="card-form" id="memory-form">
+        <div class="field">
+          <label for="memory-name">Your name</label>
+          <input id="memory-name" name="by" type="text" maxlength="60" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="memory-files">Choose photos (up to 8)</label>
+          <input id="memory-files" name="files" type="file" accept="image/*" multiple required>
+        </div>
+        <div class="field">
+          <label for="memory-caption">Caption (optional)</label>
+          <input id="memory-caption" name="caption" type="text" maxlength="120">
+        </div>
+        <button type="submit" class="btn" id="memory-send">Add photos</button>
+        <p class="form-note" id="memory-status" role="status"></p>
+      </form>
+
+      <ul class="photos" id="photos"></ul>
+      <p class="lede" id="photos-empty">No photos yet. Be the first to add one.</p>
+    </section>
+
+    <section class="messages panel" id="messages">
+      <h2 class="script">Message Board</h2>
+      <p class="lede">Leave a note for our little rainbow. Pick a colour, a sticker and a style to make it yours.</p>
+
+      <form class="card-form" id="message-form">
+        <div class="field">
+          <label for="message-name">Your name</label>
+          <input id="message-name" name="by" type="text" maxlength="60" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="message-text">Your message</label>
+          <textarea id="message-text" name="text" rows="4" maxlength="280" required></textarea>
+        </div>
+        <fieldset class="field picker">
+          <legend>Colour</legend>
+          <div class="picks">
+            <label class="swatch c0"><input id="colour-0" type="radio" name="colour" value="0" checked><span class="sr">Pink</span></label>
+            <label class="swatch c1"><input id="colour-1" type="radio" name="colour" value="1"><span class="sr">Peach</span></label>
+            <label class="swatch c2"><input id="colour-2" type="radio" name="colour" value="2"><span class="sr">Yellow</span></label>
+            <label class="swatch c3"><input id="colour-3" type="radio" name="colour" value="3"><span class="sr">Green</span></label>
+            <label class="swatch c4"><input id="colour-4" type="radio" name="colour" value="4"><span class="sr">Blue</span></label>
+            <label class="swatch c5"><input id="colour-5" type="radio" name="colour" value="5"><span class="sr">Purple</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field picker">
+          <legend>Sticker</legend>
+          <div class="picks">
+            <label class="stick"><input id="sticker-heart" type="radio" name="sticker" value="heart" checked><svg class="sticker s-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg><span class="sr">Heart</span></label>
+            <label class="stick"><input id="sticker-star" type="radio" name="sticker" value="star"><svg class="sticker s-star" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg><span class="sr">Star</span></label>
+            <label class="stick"><input id="sticker-rainbow" type="radio" name="sticker" value="rainbow"><svg class="sticker s-rainbow" viewBox="0 0 24 24" aria-hidden="true"><use href="#rainbow"/></svg><span class="sr">Rainbow</span></label>
+            <label class="stick"><input id="sticker-cloud" type="radio" name="sticker" value="cloud"><svg class="sticker s-cloud" viewBox="0 0 24 24" aria-hidden="true"><use href="#cloud"/></svg><span class="sr">Cloud</span></label>
+            <label class="stick"><input id="sticker-moon" type="radio" name="sticker" value="moon"><svg class="sticker s-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#moon"/></svg><span class="sr">Moon</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field picker">
+          <legend>Writing style</legend>
+          <div class="picks">
+            <label class="option"><input id="style-hand" type="radio" name="hand" value="1" checked> Handwritten</label>
+            <label class="option"><input id="style-neat" type="radio" name="hand" value="0"> Neat</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <span class="label">Your note will look like this</span>
+          <div class="note-preview" id="note-preview"></div>
+        </div>
+        <button type="submit" class="btn" id="message-send">Pin my message</button>
+        <p class="form-note" id="message-status" role="status"></p>
+      </form>
+
+      <ul class="notes" id="notes"></ul>
+      <p class="lede" id="notes-empty">No messages yet. Be the first to leave one.</p>
     </section>
 
     <footer class="close">
@@ -115,13 +197,24 @@
     </footer>
   </div>
 
+  <dialog class="lightbox" id="lightbox" aria-label="Photo">
+    <img id="lightbox-img" alt="">
+    <p id="lightbox-cap"></p>
+    <button type="button" class="btn ghost" id="lightbox-close">Close</button>
+  </dialog>
+
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+    <symbol id="cloud" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="7.5" cy="14" r="5"/><circle cx="13" cy="10.5" r="6"/><circle cx="18" cy="14.5" r="4.5"/><rect x="7.5" y="14" width="10.5" height="5"/></g></symbol>
+    <symbol id="moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></symbol>
+    <symbol id="rainbow" viewBox="0 0 24 24"><path d="M3 18.5a9 9 0 0 1 18 0" fill="none" stroke="#f4a9b8" stroke-width="2.8"/><path d="M6 18.5a6 6 0 0 1 12 0" fill="none" stroke="#f1cf6c" stroke-width="2.8"/><path d="M9 18.5a3 3 0 0 1 6 0" fill="none" stroke="#8bbbe0" stroke-width="2.8"/></symbol>
     <symbol id="heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.9-9.6-9.4C.9 8.3 2.7 4.5 6.3 4.5c2.1 0 3.7 1.1 4.7 2.700h2c1-1.600 2.600-2.700 4.700-2.700 3.600 0 5.400 3.800 3.900 7.100C19.500 16.100 12 21 12 21z"/></symbol>
   </svg>
 
-  <script src="config.js?v=3"></script>
-  <script src="guests.js?v=3"></script>
-  <script src="gifts.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="config.js?v=5"></script>
+  <script src="guests.js?v=5"></script>
+  <script src="gifts.js?v=5"></script>
+  <script src="script.js?v=5"></script>
+  <script src="board.js?v=5"></script>
 </body>
 </html>

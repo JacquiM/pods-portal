@@ -58,9 +58,9 @@
     var note = notes[g.id] ? '<p class="card-note" role="status">' + esc(notes[g.id]) + '</p>' : '';
     if (claims[g.id]) {
       var undo = mine().indexOf(g.id) > -1
-        ? '<button type="button" class="linkbtn" data-undo="' + id + '"' + (busy ? ' disabled' : '') + '>You ticked this. Undo</button>'
+        ? '<button type="button" class="linkbtn" data-undo="' + id + '"' + (busy ? ' disabled' : '') + '>Changed your mind? Undo</button>'
         : '';
-      return '<span class="pill">Already bought</span>' + undo + note;
+      return '<span class="pill">' + (undo ? 'You are getting this' : 'Someone is getting this') + '</span>' + undo + note;
     }
     if (!DB || !loaded) return '<span class="pill">Still needed</span>' + shop + note;
     if (openId === g.id) {
@@ -73,10 +73,15 @@
         '</div></form>' + note;
     }
     return '<span class="pill">Still needed</span>' + shop +
-      '<button type="button" class="btn tick" data-open="' + id + '">I have bought this</button>' + note;
+      '<button type="button" class="btn tick" data-open="' + id + '">I am getting this</button>' + note;
   }
   function render() {
-    list.innerHTML = gifts.map(function (g) {
+    // a ticked gift disappears for everyone except the guest who ticked it, who keeps it so they can undo
+    var my = mine();
+    var shown = gifts.filter(function (g) { return !claims[g.id] || my.indexOf(g.id) > -1 || notes[g.id]; });
+    var empty = document.getElementById('gifts-empty');
+    empty.hidden = shown.length > 0 || gifts.length === 0;
+    list.innerHTML = shown.map(function (g) {
       return '<li class="gift' + (claims[g.id] ? ' bought' : '') + '">' +
         '<div class="pic"><img src="' + esc(g.img) + '" alt="' + esc(g.name) + '" loading="lazy"></div>' +
         '<h3>' + esc(g.name) + '</h3>' +
@@ -150,7 +155,7 @@
       }).then(function () {
         claims[id] = claim;
         setMine(mine().concat(id));
-        notes[id] = 'Thank you! It is ticked off for everyone.';
+        notes[id] = 'Thank you! It is now hidden from everyone else.';
       });
     }).then(function () {
       openId = null;

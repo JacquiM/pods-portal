@@ -18,7 +18,7 @@ GitHub Pages cannot store anything, so the ticks are kept in a free Firebase Rea
 3. On the **Rules** tab, replace everything with the contents of `firebase-rules.json` and publish.
 4. On the **Data** tab, copy the database URL shown at the top and paste it into `config.js`.
 
-Guests then see an "I have bought this" button on each gift. They enter their name, and the gift shows as "Already bought" for everyone. The guest who ticked it can undo it from the same phone or computer.
+Guests then see an "I am getting this" button on each gift. They enter their name, and the gift disappears from the list for everyone else. The guest who marked it still sees it and can undo it from the same phone or computer.
 
 To see who bought what, or to untick a gift yourself, open the **Data** tab in Firebase and look under `claims`.
 
